@@ -4,17 +4,21 @@ import random
 import string
 
 def generate_password(length: int, num: bool, punc: bool):
-    punctuation ="!?=+-()#"
+    punctuation ="!?"
     numbers = "0123456789"
-    letters = string.ascii_lowercase
+    letters = string.ascii_lowercase + string.ascii_uppercase
 
     password = []
-    if num:
-        password.append(random.choice(numbers))
-    if punc:
-        password.append(random.choice(punctuation))
+    
     while len(password) < length:
-        password.append(random.choice(letters))
+        rand = random.choice(["n", "p", "l"]) 
+        if rand == "n" and num:
+            password.append(random.choice(numbers))
+        if rand == "p" and punc:
+            password.append(random.choice(punctuation))
+        else:
+            password.append(random.choice(letters))
+            
     random.shuffle(password)
     return "".join(password)
 
