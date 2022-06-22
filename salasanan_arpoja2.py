@@ -43,7 +43,6 @@ def main():
         main()
     else:
         print("K thx bye")
-        return None
 
 main()
 
